@@ -20,27 +20,32 @@ color:white;
 }
 
 header{
-background:#08192f;
-padding:15px;
 text-align:center;
+padding:20px;
 border-bottom:2px solid #00bfff;
+background:#08192f;
 }
 
 .logo{
-font-size:28px;
+font-size:40px;
 font-weight:bold;
 color:#00bfff;
 }
 
-.banner{
-text-align:center;
-padding:20px;
+.sub{
+margin-top:10px;
+font-size:20px;
+}
+
+.top-btns{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-top:20px;
 }
 
 .btn{
-display:inline-block;
-padding:10px 15px;
-margin:5px;
+padding:12px 20px;
 border-radius:10px;
 text-decoration:none;
 color:white;
@@ -57,9 +62,9 @@ background:#0088cc;
 
 .main-grid{
 display:grid;
-grid-template-columns: 45% 55%;
-gap:10px;
-align-items:start;
+grid-template-columns:1fr 1fr;
+gap:15px;
+padding:15px;
 }
 
 .box{
@@ -68,30 +73,46 @@ padding:15px;
 border-radius:15px;
 }
 
+.price-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
 .price-card{
-background:#11284b;
-padding:10px;
-border-radius:10px;
-margin-bottom:8px;
+background:#132b55;
+padding:15px;
+border-radius:12px;
 text-align:center;
+}
+
+.price-card h3{
+color:#00bfff;
 }
 
 input,select{
 width:100%;
-padding:10px;
-margin:6px 0;
+padding:12px;
+margin:8px 0;
 border:none;
-border-radius:8px;
+border-radius:10px;
 }
 
 .order-btn{
-background:#25D366;
 width:100%;
-padding:12px;
+padding:15px;
+background:#25D366;
+color:white;
+font-size:18px;
+font-weight:bold;
 border:none;
 border-radius:10px;
-color:white;
-font-size:16px;
+}
+
+@media(max-width:768px){
+.main-grid{
+grid-template-columns:1fr 1fr;
+}
 }
 
 </style>
@@ -101,11 +122,9 @@ font-size:16px;
 
 <header>
 <div class="logo">💎 DAVID FF MARKET</div>
-</header>
+<div class="sub">FREE FIRE TOP UP CENTER</div>
 
-<div class="banner">
-<h2>FREE FIRE TOP UP CENTER</h2>
-
+<div class="top-btns">
 <a class="btn whatsapp"
 href="https://wa.me/918601322748">
 WhatsApp
@@ -115,56 +134,72 @@ WhatsApp
 href="https://t.me/DavidFFMarket">
 Telegram
 </a>
-
 </div>
 
-<div class="main-grid">
+</header>
 
-<div class="box">
-<h2>💎 Price List</h2><div class="price-card">
-<b>200 💎</b><br>₹130
+<div class="main-grid"><div class="box">
+
+<h2>💎 Price List</h2>
+
+<div class="price-grid">
+
+<div class="price-card">
+<h3>200 💎</h3>
+<p>₹130</p>
 </div>
 
 <div class="price-card">
-<b>620 💎</b><br>₹330
+<h3>620 💎</h3>
+<p>₹330</p>
 </div>
 
 <div class="price-card">
-<b>930 💎</b><br>₹580
+<h3>930 💎</h3>
+<p>₹580</p>
 </div>
 
 <div class="price-card">
-<b>1040 💎</b><br>₹580
+<h3>1040 💎</h3>
+<p>₹580</p>
 </div>
 
 <div class="price-card">
-<b>2120 💎</b><br>₹1050
+<h3>2120 💎</h3>
+<p>₹1050</p>
 </div>
 
 <div class="price-card">
-<b>2290 💎</b><br>₹1300
+<h3>2290 💎</h3>
+<p>₹1300</p>
 </div>
 
 <div class="price-card">
-<b>4360 💎</b><br>₹2200
+<h3>4360 💎</h3>
+<p>₹2200</p>
 </div>
 
 <div class="price-card">
-<b>5300 💎</b><br>₹2750
+<h3>5300 💎</h3>
+<p>₹2750</p>
 </div>
 
 <div class="price-card">
-<b>9800 💎</b><br>₹4700
+<h3>9800 💎</h3>
+<p>₹4700</p>
 </div>
 
 <div class="price-card">
-<b>11200 💎</b><br>₹4800
+<h3>11200 💎</h3>
+<p>₹4800</p>
 </div>
 
 <div class="price-card">
-<b>22400 💎</b><br>₹10500
+<h3>22400 💎</h3>
+<p>₹10500</p>
 </div>
 
+</div>
 </div>
 
 <div class="box">
@@ -203,49 +238,59 @@ onclick="sendOrder()">
 
 </div>
 
-<div class="box"
-style="margin:10px;">
+<div class="main-grid"><div class="box">
+
 <h2>💳 Payment QR</h2>
 
 <img src="Screenshot_20260618_032858_GPay.jpg"
-width="220"
+width="100%"
 style="border-radius:10px;">
 
 <p style="margin-top:10px;">
-UPI: davidffmarket@okhdfcbank
+UPI ID: davidffmarket@okhdfcbank
 </p>
-</div><div class="box" style="margin:10px;">
+
+</div>
+
+<div class="box">
 
 <h2>⭐ Customer Reviews</h2>
 
 <p>⭐⭐⭐⭐⭐ Rohit Gamer</p>
 <p>Fast Delivery 🔥</p>
 
-<br>
+<hr style="margin:10px 0;">
 
 <p>⭐⭐⭐⭐⭐ Suraj FF</p>
 <p>Trusted Seller ❤️</p>
 
-<br>
+<hr style="margin:10px 0;">
 
 <p>⭐⭐⭐⭐⭐ Gaming Power</p>
 <p>Best Price 💎</p>
 
 </div>
 
-<footer
-style="text-align:center;
-padding:20px;
-background:#08192f;
-margin-top:10px;">
+</div>
 
-<h3>💎 DAVID FF MARKET 💎</h3>
+<footer
+style="
+background:#08192f;
+padding:20px;
+text-align:center;
+margin-top:15px;">
+
+<h2>💎 DAVID FF MARKET 💎</h2>
 
 <p>📱 WhatsApp: 8601322748</p>
 
 <p>📢 Telegram: @DavidFFMarket</p>
 
 <p>💳 UPI: davidffmarket@okhdfcbank</p>
+
+<p style="margin-top:10px;">
+© 2025 DAVID FF MARKET
+</p>
 
 </footer>
 
@@ -267,7 +312,8 @@ var text =
 "🎮 Game Name: "+game+"\n"+
 "🔑 Access Token: "+token+"\n"+
 "💎 Package: "+pack+"\n\n"+
-"💳 Send Redeem Code ÷ "+pack.split('₹')[1];
+"💳 Send Redeem Code ÷ "+
+pack.split("₹")[1];
 
 window.open(
 "https://wa.me/918601322748?text="+
