@@ -464,15 +464,19 @@ document.getElementById("token").value;
 var pack =
 document.getElementById("package").value;
 
+var amount = pack.split("₹")[1] || "";
+
 var text =
-"🔥 DAVID FF MARKET ORDER 🔥%0A%0A"+
-"🎮 Game Name: "+game+"%0A"+
-"🔑 Access Token: "+token+"%0A"+
-"💎 Package: "+pack+"%0A%0A"+
-"📱 Please process my order.";
+"🔥 DAVID FF MARKET ORDER 🔥\n\n"+
+"🎮 Game Name: "+game+"\n"+
+"🔑 Access Token: "+token+"\n"+
+"💎 Package: "+pack+"\n\n"+
+"💳 Send Redeem Code: ₹"+amount+"\n"+
+"⚠️ Top-Up will be processed after redeem code verification.";
 
 window.open(
-"https://wa.me/918601322748?text="+text
+"https://wa.me/918601322748?text="+
+encodeURIComponent(text)
 );
 
 }
