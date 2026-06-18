@@ -1,14 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DAVID FF MARKET</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+background:#071226;
+color:white;
+font-family:Arial,sans-serif;
+text-align:center;
+padding:15px;
+}
+
+.box{
+background:#0d1b33;
+padding:20px;
+margin:15px;
+border-radius:15px;
+}
+
+input,select{
+width:90%;
+padding:12px;
+margin:8px;
+border:none;
+border-radius:10px;
+}
+
+button{
+background:#25D366;
+color:white;
+padding:15px 25px;
+border:none;
+border-radius:10px;
+font-size:18px;
+cursor:pointer;
+}
+
+h1{
+color:#00d4ff;
+}
+</style>
+</head>
+
+<body>
+
 <h1>💎 DAVID FF MARKET 💎</h1>
 
 <div class="box">
 <h2>🔥 Trusted Free Fire Top-Up</h2>
+
 <p>📱 WhatsApp: +91 8601322748</p>
 <p>📢 Telegram: @DavidFFMarket</p>
 <p>💳 UPI: davidffmarket@okhdfcbank</p>
+
 </div>
 
 <div class="box">
 <h2>💎 Diamond Price List</h2>
+
 <p>200 💎 = ₹130</p>
 <p>620 💎 = ₹330</p>
 <p>930 💎 = ₹580</p>
@@ -20,14 +71,16 @@
 <p>9800 💎 = ₹4700</p>
 <p>11200 💎 = ₹4800</p>
 <p>22400 💎 = ₹10500</p>
+
 </div>
 
 <div class="box">
-<h2>🛒 Place Your Order</h2>
 
-<input type="text" id="game" placeholder="Game Name"><br><br>
+<h2>🛒 Place Order</h2>
 
-<input type="text" id="token" placeholder="Access Token"><br><br>
+<input type="text" id="game" placeholder="Game Name">
+
+<input type="text" id="token" placeholder="Access Token">
 
 <select id="package">
 <option>Select Diamond Package</option>
@@ -46,19 +99,25 @@
 
 <br><br>
 
-<button onclick="sendOrder()">📱 Order On WhatsApp</button>
+<button onclick="sendOrder()">
+📱 Order On WhatsApp
+</button>
+
 </div>
 
 <div class="box">
-<h2>💳 Payment QR</h2>
+<h2>💳 Payment</h2>
 
-<img src="YOUR_QR_IMAGE_LINK" width="250">
+<p><b>UPI ID:</b></p>
+<p>davidffmarket@okhdfcbank</p>
 
-<p><b>UPI:</b> davidffmarket@okhdfcbank</p>
+<p>QR Code Image Add Kar Sakte Ho</p>
+
 </div>
 
 <script>
-function sendOrder() {
+
+function sendOrder(){
 
 var game =
 document.getElementById("game").value;
@@ -70,34 +129,19 @@ var pack =
 document.getElementById("package").value;
 
 var text =
-"🔥 DAVID FF MARKET ORDER 🔥%0A%0A"+
-"🎮 Game Name: "+game+"%0A"+
-"🔑 Access Token: "+token+"%0A"+
+"🔥 DAVID FF MARKET ORDER 🔥\n\n"+
+"🎮 Game Name: "+game+"\n"+
+"🔑 Access Token: "+token+"\n"+
 "💎 Package: "+pack;
 
 window.open(
-"https://wa.me/918601322748?text="+text
-);
-
-}
-</script>
-<script>
-function sendOrder() {
-
-var game = document.getElementById("game").value;
-var token = document.getElementById("token").value;
-var pack = document.getElementById("package").value;
-
-var text =
-"🔥 DAVID FF MARKET ORDER 🔥\n\n" +
-"🎮 Game Name: " + game + "\n" +
-"🔑 Access Token: " + token + "\n" +
-"💎 Package: " + pack;
-
-window.open(
-"https://wa.me/918601322748?text=" +
+"https://wa.me/918601322748?text="+
 encodeURIComponent(text)
 );
 
 }
+
 </script>
+
+</body>
+</html>
