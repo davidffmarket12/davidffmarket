@@ -571,5 +571,30 @@ box-shadow:0 0 15px #25D366;
 }
 </style>
 
+
+<script>
+setInterval(function(){
+
+document.getElementById("orders").innerHTML =
+Math.floor(Math.random()*200)+800;
+
+document.getElementById("customers").innerHTML =
+Math.floor(Math.random()*150)+500;
+
+document.getElementById("online").innerHTML =
+Math.floor(Math.random()*20)+10;
+
+},5000);
+</script>
+<div class="box" style="text-align:center;">
+<h2>📊 Live Stats</h2>
+
+<p>🔥 Orders Completed: <span id="orders">850</span>+</p>
+
+<p>👥 Happy Customers: <span id="customers">500</span>+</p>
+
+<p>🟢 Users Online: <span id="online">15</span></p>
+
+</div>
 </body>
 </html>
