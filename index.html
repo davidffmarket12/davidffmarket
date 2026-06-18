@@ -1,45 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>DAVID FF MARKET</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body{
-background:#071226;
-color:white;
-font-family:Arial,sans-serif;
-text-align:center;
-padding:20px;
-}
-.box{
-background:#0d1b33;
-padding:20px;
-border-radius:15px;
-margin:10px;
-}
-button{
-background:#25D366;
-color:white;
-border:none;
-padding:12px 20px;
-border-radius:10px;
-font-size:18px;
-}
-input,select{
-width:90%;
-padding:10px;
-margin:8px;
-border-radius:8px;
-border:none;
-}
-</style>
-</head>
-<body>
-
 <h1>💎 DAVID FF MARKET 💎</h1>
 
 <div class="box">
-<h2>FREE FIRE TOP UP CENTER</h2>
+<h2>🔥 Trusted Free Fire Top-Up</h2>
 <p>📱 WhatsApp: +91 8601322748</p>
 <p>📢 Telegram: @DavidFFMarket</p>
 <p>💳 UPI: davidffmarket@okhdfcbank</p>
@@ -61,13 +23,13 @@ border:none;
 </div>
 
 <div class="box">
-<h2>🛒 Place Order</h2>
+<h2>🛒 Place Your Order</h2>
 
-<input type="text" placeholder="Game Name">
+<input type="text" id="game" placeholder="Game Name"><br><br>
 
-<input type="text" placeholder="Access Token">
+<input type="text" id="token" placeholder="Access Token"><br><br>
 
-<select>
+<select id="package">
 <option>Select Diamond Package</option>
 <option>200 💎 - ₹130</option>
 <option>620 💎 - ₹330</option>
@@ -84,11 +46,38 @@ border:none;
 
 <br><br>
 
-<a href="https://wa.me/918601322748">
-<button>Order On WhatsApp</button>
-</a>
-
+<button onclick="sendOrder()">📱 Order On WhatsApp</button>
 </div>
 
-</body>
-</html>
+<div class="box">
+<h2>💳 Payment QR</h2>
+
+<img src="YOUR_QR_IMAGE_LINK" width="250">
+
+<p><b>UPI:</b> davidffmarket@okhdfcbank</p>
+</div>
+
+<script>
+function sendOrder() {
+
+var game =
+document.getElementById("game").value;
+
+var token =
+document.getElementById("token").value;
+
+var pack =
+document.getElementById("package").value;
+
+var text =
+"🔥 DAVID FF MARKET ORDER 🔥%0A%0A"+
+"🎮 Game Name: "+game+"%0A"+
+"🔑 Access Token: "+token+"%0A"+
+"💎 Package: "+pack;
+
+window.open(
+"https://wa.me/918601322748?text="+text
+);
+
+}
+</script>
