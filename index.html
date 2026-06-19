@@ -217,7 +217,7 @@ grid-template-columns:1fr;
 </div>
 
 <a href="#contact">📞 Contact</a>
-
+<a href="#track">📦 Track Order</a>
 </nav>
 
 <section id="home" class="hero">
@@ -392,6 +392,28 @@ margin-top:10px;">
 📱 CLICK HERE FOR HELP
 
 </a>
+
+</div>
+<div class="box" id="track">
+
+<h2>📦 Track Order</h2>
+
+<input
+type="text"
+id="trackid"
+placeholder="Enter Order ID"
+style="width:100%;padding:12px;border-radius:10px;">
+
+<br><br>
+
+<button onclick="trackOrder()"
+style="width:100%;padding:15px;background:#25D366;color:white;border:none;border-radius:10px;font-weight:bold;">
+
+🔍 TRACK ORDER
+
+</button>
+
+<p id="result"></p>
 
 </div>
 <div class="box" id="redeeminfo">
@@ -657,5 +679,21 @@ Math.floor(Math.random()*20)+10;
 <p>🟢 Users Online: <span id="online">15</span></p>
 
 </div>
+<script>
+function trackOrder(){
+
+let id =
+document.getElementById("trackid").value;
+
+if(id=="DFM123"){
+document.getElementById("result").innerHTML =
+"✅ Order Completed";
+}
+else{
+document.getElementById("result").innerHTML =
+"⏳ Order Processing";
+}
+}
+</script>
 </body>
 </html>
