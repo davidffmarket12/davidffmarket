@@ -166,6 +166,17 @@ text-shadow:0 0 15px #00bfff;
 transform:scale(1.05);
 transition:0.3s;
     }
+    .main-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+@media(max-width:768px){
+.main-grid{
+grid-template-columns:1fr;
+}
+}
 </style>
 </head>
 
@@ -240,8 +251,11 @@ India's Trusted Free Fire Top-Up Store
 🚀 Start Order
 </a>
 
-</section><div class="box" id="price">
+</section>
 
+<div class="main-grid">
+
+<div class="box" id="price">
 <h2>💎 Diamond Chart</h2>
 
 <div class="price-grid">
@@ -379,7 +393,7 @@ margin-top:10px;">
 
 </a>
 
-
+</div>
 <div class="box" id="redeeminfo">
 
 <h2>🎁 Redeem Code System</h2>
