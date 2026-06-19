@@ -294,7 +294,69 @@ font-weight:bold;
 }
 
 </style>
+<div class="box">
 
+<h2>⚠️ IMPORTANT NOTICE</h2>
+
+<p style="color:#ffcc00;font-weight:bold;">
+Please check pack availability before placing an order.
+</p>
+
+<p>
+Some packs can only be purchased once per Free Fire account.
+If a pack has already been claimed on your account and you place the same order again, the top-up cannot be completed.
+</p>
+
+<p style="color:#ff6666;">
+Only the Redeem Code will be refunded.
+No cash refund or payment refund will be provided.
+</p>
+
+<p>
+Before placing an order, please contact us on WhatsApp and send your Access Token.
+We will check the available packs on your account and inform you which packs can be purchased.
+</p>
+
+<p>
+Please place your order only after receiving confirmation from us.
+</p>
+
+<h2>📦 Check Available Packs</h2>
+
+<input
+type="text"
+id="checktoken"
+placeholder="Paste Access Token Here"
+style="width:100%;padding:12px;border-radius:10px;">
+
+<br><br>
+
+<button onclick="sendToken()"
+style="width:100%;padding:15px;background:#25D366;color:white;border:none;border-radius:10px;font-weight:bold;">
+
+📱 CHECK AVAILABLE PACKS
+
+</button>
+
+</div>
+
+<script>
+function sendToken(){
+
+let token =
+document.getElementById("checktoken").value;
+
+window.open(
+"https://wa.me/919876543210?text=" +
+encodeURIComponent(
+"Hello DAVID FF MARKET,\n\nI want to check available packs before ordering.\n\nAccess Token:\n" +
+token +
+"\n\nPlease check my account and tell me which packs are available."
+)
+);
+
+}
+</script>
 <div class="box" id="order">
 
 <h2>🛒 Place Order</h2>
