@@ -4,65 +4,70 @@
 <title>Garena Tool Panel</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial;
-  background: black;
-  color: #00ff66;
-  text-align: center;
+body{
+  margin:0;
+  font-family:Arial;
+  background:#050505;
+  color:#00ff66;
+  text-align:center;
 }
 
-h1 {
-  margin-top: 20px;
-  font-size: 28px;
+h1{
+  margin-top:20px;
+  font-size:26px;
 }
 
-.dev {
-  color: #00ff66;
-  margin-bottom: 20px;
+.dev{
+  margin-bottom:20px;
+  font-size:14px;
 }
 
-.container {
-  width: 90%;
-  margin: auto;
+.box{
+  width:90%;
+  margin:auto;
 }
 
-.btn {
-  display: block;
-  width: 100%;
-  padding: 15px;
-  margin: 12px 0;
-  border: 2px solid #00ff66;
-  background: transparent;
-  color: #00ff66;
-  font-size: 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
+.card{
+  border:1px solid #00ff66;
+  padding:15px;
+  margin:15px 0;
+  border-radius:10px;
 }
 
-.btn:hover {
-  background: #00ff66;
-  color: black;
+input{
+  width:95%;
+  padding:12px;
+  margin:8px 0;
+  border-radius:6px;
+  border:1px solid #00ff66;
+  background:black;
+  color:white;
 }
 
-input {
-  width: 95%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 6px;
-  border: 1px solid #00ff66;
-  background: black;
-  color: white;
+button{
+  width:100%;
+  padding:12px;
+  margin-top:8px;
+  border:1px solid #00ff66;
+  background:transparent;
+  color:#00ff66;
+  border-radius:6px;
+  cursor:pointer;
 }
 
-.section {
-  margin-top: 25px;
-  padding: 15px;
-  border: 1px solid #00ff66;
+button:hover{
+  background:#00ff66;
+  color:black;
+}
+
+pre{
+  text-align:left;
+  background:#111;
+  padding:10px;
+  border-radius:6px;
+  overflow:auto;
 }
 </style>
-
 </head>
 
 <body>
@@ -70,51 +75,32 @@ input {
 <h1>Garena Account Tool</h1>
 <div class="dev">Developer: @DAVID FF</div>
 
-<div class="container">
+<div class="box">
 
-  <!-- Bind Change -->
-  <div class="section">
-    <h3>Bind Change</h3>
-    <button class="btn" onclick="alert('Bind Change Open')">OPEN</button>
-  </div>
+<!-- CHECK BIND -->
+<div class="card">
+<h3>Check Bind Info</h3>
+<input id="t1" placeholder="Access Token">
+<button onclick="checkBind()">GET INFO</button>
+<pre id="o1"></pre>
+</div>
 
-  <!-- UnBind -->
-  <div class="section">
-    <h3>UnBind Email</h3>
-    <button class="btn" onclick="alert('Unbind Open')">OPEN</button>
-  </div>
+<!-- UNBIND -->
+<div class="card">
+<h3>Unbind Email</h3>
+<input id="t2" placeholder="Access Token">
+<input id="i2" placeholder="Identity Token">
+<button onclick="unbind()">UNBIND</button>
+<pre id="o2"></pre>
+</div>
 
-  <!-- Check Bind -->
-  <div class="section">
-    <h3>Check Bind Info</h3>
-    <input id="token" placeholder="Access Token">
-    <button class="btn" onclick="checkBind()">GET INFO</button>
-    <pre id="output"></pre>
-  </div>
-
-  <!-- Cancel -->
-  <div class="section">
-    <h3>Cancel Mail Bind</h3>
-    <button class="btn">CANCEL</button>
-  </div>
-
-  <!-- Bind New -->
-  <div class="section">
-    <h3>Bind NEW Email</h3>
-    <button class="btn">OPEN</button>
-  </div>
-
-  <!-- Links -->
-  <div class="section">
-    <h3>Check Links</h3>
-    <button class="btn">CHECK</button>
-  </div>
-
-  <!-- Revoke -->
-  <div class="section">
-    <h3>Revoke Access Token</h3>
-    <button class="btn">REVOKE</button>
-  </div>
+<!-- REVOKE -->
+<div class="card">
+<h3>Revoke Token</h3>
+<input id="t3" placeholder="Access Token">
+<button onclick="revoke()">REVOKE</button>
+<pre id="o3"></pre>
+</div>
 
 </div>
 
@@ -122,18 +108,45 @@ input {
 
 const API = "https://YOUR-BACKEND.onrender.com";
 
-function checkBind() {
-  let token = document.getElementById("token").value;
+// CHECK BIND
+function checkBind(){
+let token=document.getElementById("t1").value;
 
-  fetch(API + "/check-bind?token=" + token)
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("output").innerText =
-    JSON.stringify(data, null, 2);
-  })
-  .catch(err => {
-    document.getElementById("output").innerText = err;
-  });
+fetch(API+"/check-bind?token="+token)
+.then(r=>r.json())
+.then(d=>{
+document.getElementById("o1").innerText=JSON.stringify(d,null,2);
+});
+}
+
+// UNBIND
+function unbind(){
+let token=document.getElementById("t2").value;
+let id=document.getElementById("i2").value;
+
+fetch(API+"/unbind",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+token:token,
+identity_token:id
+})
+})
+.then(r=>r.json())
+.then(d=>{
+document.getElementById("o2").innerText=JSON.stringify(d,null,2);
+});
+}
+
+// REVOKE
+function revoke(){
+let token=document.getElementById("t3").value;
+
+fetch(API+"/revoke?token="+token)
+.then(r=>r.json())
+.then(d=>{
+document.getElementById("o3").innerText=JSON.stringify(d,null,2);
+});
 }
 
 </script>
