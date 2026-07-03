@@ -1,154 +1,148 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Garena Tool Panel</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secure Portal</title>
 
 <style>
 body{
   margin:0;
-  font-family:Arial;
-  background:#050505;
-  color:#00ff66;
+  font-family: Arial;
+  background:#0b0f14;
+  color:white;
+}
+
+.header{
   text-align:center;
+  padding:20px;
 }
 
-h1{
-  margin-top:20px;
-  font-size:26px;
+.title{
+  font-size:28px;
+  color:#00ffcc;
+  font-weight:bold;
 }
 
-.dev{
-  margin-bottom:20px;
-  font-size:14px;
+.sub{
+  color:#888;
+  margin-top:5px;
 }
 
-.box{
+.container{
   width:90%;
   margin:auto;
+  margin-top:20px;
 }
 
 .card{
-  border:1px solid #00ff66;
+  background:#111827;
   padding:15px;
   margin:15px 0;
   border-radius:10px;
+  border:1px solid #1f2937;
+}
+
+h3{
+  color:#00ffcc;
 }
 
 input{
-  width:95%;
-  padding:12px;
-  margin:8px 0;
-  border-radius:6px;
-  border:1px solid #00ff66;
-  background:black;
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  border-radius:8px;
+  border:none;
+  outline:none;
+  background:#0b1220;
   color:white;
 }
 
 button{
   width:100%;
-  padding:12px;
-  margin-top:8px;
-  border:1px solid #00ff66;
-  background:transparent;
-  color:#00ff66;
-  border-radius:6px;
+  padding:10px;
+  margin-top:10px;
+  border:none;
+  border-radius:8px;
+  background:#00ffcc;
+  font-weight:bold;
   cursor:pointer;
 }
 
 button:hover{
-  background:#00ff66;
-  color:black;
+  background:#00d6aa;
 }
 
 pre{
-  text-align:left;
-  background:#111;
+  background:#0b1220;
   padding:10px;
-  border-radius:6px;
+  margin-top:10px;
+  border-radius:8px;
   overflow:auto;
+  color:#00ffcc;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Garena Account Tool</h1>
-<div class="dev">Developer: @DAVID FF</div>
-
-<div class="box">
-
-<!-- CHECK BIND -->
-<div class="card">
-<h3>Check Bind Info</h3>
-<input id="t1" placeholder="Access Token">
-<button onclick="checkBind()">GET INFO</button>
-<pre id="o1"></pre>
+<div class="header">
+  <div class="title">SECURE PORTAL</div>
+  <div class="sub">CONTROL PANEL V1.0 (DEMO)</div>
 </div>
 
-<!-- UNBIND -->
-<div class="card">
-<h3>Unbind Email</h3>
-<input id="t2" placeholder="Access Token">
-<input id="i2" placeholder="Identity Token">
-<button onclick="unbind()">UNBIND</button>
-<pre id="o2"></pre>
-</div>
+<div class="container">
 
-<!-- REVOKE -->
-<div class="card">
-<h3>Revoke Token</h3>
-<input id="t3" placeholder="Access Token">
-<button onclick="revoke()">REVOKE</button>
-<pre id="o3"></pre>
-</div>
+  <!-- CHECK STATUS -->
+  <div class="card">
+    <h3>Check Status</h3>
+    <input id="token" placeholder="Access Token">
+    <button onclick="checkStatus()">Check Status</button>
+    <pre id="out1"></pre>
+  </div>
+
+  <!-- CANCEL -->
+  <div class="card">
+    <h3>Cancel Request</h3>
+    <input placeholder="Request ID (demo)">
+    <button onclick="demo()">Cancel</button>
+    <pre id="out2"></pre>
+  </div>
+
+  <!-- INFO -->
+  <div class="card">
+    <h3>System Info</h3>
+    <button onclick="info()">Get Info</button>
+    <pre id="out3"></pre>
+  </div>
 
 </div>
 
 <script>
+function checkStatus(){
+  let token = document.getElementById("token").value;
 
-const API = "https://YOUR-BACKEND.onrender.com";
-
-// CHECK BIND
-function checkBind(){
-let token=document.getElementById("t1").value;
-
-fetch(API+"/check-bind?token="+token)
-.then(r=>r.json())
-.then(d=>{
-document.getElementById("o1").innerText=JSON.stringify(d,null,2);
-});
+  document.getElementById("out1").innerText =
+  JSON.stringify({
+    success:true,
+    message:"Demo response loaded",
+    token: token
+  }, null, 2);
 }
 
-// UNBIND
-function unbind(){
-let token=document.getElementById("t2").value;
-let id=document.getElementById("i2").value;
-
-fetch(API+"/unbind",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({
-token:token,
-identity_token:id
-})
-})
-.then(r=>r.json())
-.then(d=>{
-document.getElementById("o2").innerText=JSON.stringify(d,null,2);
-});
+function demo(){
+  document.getElementById("out2").innerText =
+  "Request cancelled (demo mode)";
 }
 
-// REVOKE
-function revoke(){
-let token=document.getElementById("t3").value;
-
-fetch(API+"/revoke?token="+token)
-.then(r=>r.json())
-.then(d=>{
-document.getElementById("o3").innerText=JSON.stringify(d,null,2);
-});
+function info(){
+  document.getElementById("out3").innerText =
+  JSON.stringify({
+    status:"active",
+    version:"1.0",
+    mode:"frontend demo"
+  }, null, 2);
 }
-
 </script>
 
 </body>
